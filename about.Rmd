@@ -16,8 +16,6 @@ For my full CV, please see here: [CV](Resume Updated.pdf)
 
 ### Professional Experience 
 
-![](images/logo.png)
-
 2017- Present, Data Analyst, **Memorial Sloan Kettering Cancer Center** 
 
 *   Conduct statistical analysis on clinical oncology data using methods such as survival analysis, logistic regression, and nonparametric statistical tests in R
