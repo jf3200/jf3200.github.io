@@ -64,9 +64,11 @@ rest_inspec %>%
 
 ```{r}
 rest_inspec %>% 
-  separate(inspection_date, into = c("year","month", "day"), sep = "-") %>% 
+  separate(inspection_date, 
+           into = c("year","month", "day"), 
+           sep = "-") %>% 
   group_by(boro,  month) %>%
-  summarize(n_inspec = (n())) %>%
+  summarize(n_inspec = n()) %>%
   plot_ly(x = ~month, y = ~n_inspec, 
         color = ~boro, type = 'scatter', mode = 'lines', colors = "viridis") %>% 
   layout(title = "Number of Inspections By Month",
