@@ -1,0 +1,77 @@
+---
+title: "Restaurant Inspections in NYC"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+
+```{r data_load_and_clean}
+data("rest_inspec")
+
+#Subset to only A,B and C grades and remove missing borough and filter to scores >=0
+
+rest_inspec = 
+  rest_inspec %>% 
+  filter(grade %in% c("A", "B", "C"), boro != "Missing", score >= 0) %>%  
+  mutate(boro = str_to_title(boro))
+
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Score Distributions by Borough
+
+```{r}
+rest_inspec %>% 
+  group_by(boro) %>% 
+  plot_ly(x = ~boro, y = ~score, 
+         color = ~boro, type = "box", colors = "viridis") %>% 
+  layout(title = "Distribution of Scores by Borough",
+         xaxis = list(title = "Borough"), yaxis = list(title = "Score"))
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Inspection Grades by Borough
+
+```{r}
+rest_inspec %>% 
+  group_by(boro, grade) %>% 
+  summarize(n = n()) %>% 
+  group_by(boro) %>% 
+  mutate(n_percent = n / sum(n)) %>%
+  plot_ly(x = ~grade, y = ~n_percent, 
+         color = ~boro, type = "bar", colors = "viridis") %>% 
+  layout(title = "Inspection Grades by Borough",
+         xaxis = list(title = "Inspection Grade"), yaxis = list(title = "Percent of Inspections"))
+```
+
+### Number of Inspections In Each Month
+
+```{r}
+rest_inspec %>% 
+  separate(inspection_date, into = c("year","month", "day"), sep = "-") %>% 
+  group_by(boro,  month) %>%
+  summarize(n_inspec = (n())) %>%
+  plot_ly(x = ~month, y = ~n_inspec, 
+        color = ~boro, type = 'scatter', mode = 'lines', colors = "viridis") %>% 
+  layout(title = "Number of Inspections By Month",
+         xaxis = list(title = "Month"), yaxis = list(title = "Number of Inspections"))
+
+
+```
+
