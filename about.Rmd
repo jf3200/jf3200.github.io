@@ -1,8 +1,43 @@
 ---
-title: "Jessica Flynn"
+title: "Resume"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
+For my full CV, please see here: [CV](Resume Updated.pdf)
+
+### Academic Experience 
+
+2017, BS Biometry and Statistics, Cornell University 
+
+2021, MS, Biostatistics, Columbia University
+
+### Professional Experience 
+
+![](images/logo.png)
+
+2017- Present, Data Analyst, **Memorial Sloan Kettering Cancer Center** 
+
+*   Conduct statistical analysis on clinical oncology data using methods such as survival analysis, logistic regression, and nonparametric statistical tests in R
+
+*   Collaborate with clinicians and oncology researchers to prepare abstracts and manuscripts for publication 
+
+* Engage in weekly seminars and clinical trial protocol reviews
+
+### Current Projects
+
+#### Vol-PACT
+
+I currently work as a statistician on the Vol-PACT Team. We are working to develop efficacy metrics for phase II clinical trials that are more optimal than the standard RECIST Criteria. We are using data from 10 trials in order to work on metric development, and we are evaluating their performance by simulating phase II trials. For more information on this effort, please see the link below. 
+
+
+[Vol-PACT](https://www.mskcc.org/departments/epidemiology-biostatistics/biostatistics/vol-pact-advanced-metrics-and-modeling-volumetric-ct-precision-analysis-clinical-trial-results)
+
+#### CAR T Cell 
+
+MSK is currently undergoing a great deal of research related to Chimeric Antigen Receptor (CAR) T Cell therapy. This is an approach where a patients own T cell are re-engineered and entered back into the body to help fight off hematologic cancers. This varies from the traditional approach of using T cell from donors, and is less dangerous as the patients have less of a chance of rejecting their own cells. I currently work as one of the statisticians who conduct analysis on studies and clinical trials for this therapy type
+
+
+[CAR T](https://www.mskcc.org/cancer-care/diagnosis-treatment/cancer-treatments/immunotherapy/car-cell-therapy)
